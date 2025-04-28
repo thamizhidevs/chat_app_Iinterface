@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ChatSidebar from "./chat-sidebar";
@@ -136,7 +135,11 @@ const initialMessages = {
   ]
 };
 
-const ChatApp = () => {
+interface ChatAppProps {
+  onLogout: () => void;
+}
+
+const ChatApp = ({ onLogout }: ChatAppProps) => {
   const [chats, setChats] = useState(initialChats);
   const [messages, setMessages] = useState(initialMessages);
   const [activeChat, setActiveChat] = useState<string | null>(null);
@@ -242,6 +245,7 @@ const ChatApp = () => {
         chats={chats}
         activeChat={activeChat}
         onChatSelect={handleChatSelect}
+        onLogout={onLogout}
       />
       <ChatArea
         chatId={activeChat}

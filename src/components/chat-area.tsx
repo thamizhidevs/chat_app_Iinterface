@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import ChatHeader from "./chat-header";
 import ChatMessage from "./chat-message";
@@ -43,10 +42,10 @@ const ChatArea = ({
 
   if (!chatId) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-gray-50">
+      <div className="flex-1 flex items-center justify-center bg-gray-50 h-full">
         <div className="text-center p-8">
-          <h2 className="text-2xl font-medium text-gray-600 mb-2">Welcome to Indigo Chat</h2>
-          <p className="text-gray-500">
+          <h2 className="text-3xl font-medium text-gray-600 mb-4">Welcome to Indigo Chat</h2>
+          <p className="text-gray-500 text-lg">
             Select a chat to start messaging
           </p>
         </div>
@@ -62,7 +61,7 @@ const ChatArea = ({
         status="Online"
         onBackClick={onBackClick}
       />
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+      <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
         {messages.map((message) => (
           <ChatMessage
             key={message.id}
